@@ -1,5 +1,5 @@
 import './App.css'
-
+import TaskManager from './app/TaskManager'
 function App() {
 
   return (
@@ -9,9 +9,5 @@ function App() {
   )
 }
 
-function TaskManager(){
-  return <h1> Hello World </h1>
-  
-}
 
 export default App
