@@ -1,12 +1,14 @@
-
+import {useState } from "react";
 
 function TaskManager(){
+    const [tasks, setTask] = useState([]);
     return (
         <>
             <h1> Task Manager </h1>
             <ul>
-                <li>Task 1</li>
-                <li>Task 2</li>
+                {tasks.map(
+                    (task) => <li>{task}</li>
+                )}
             </ul>
             <div>
                 <input type="text" />
