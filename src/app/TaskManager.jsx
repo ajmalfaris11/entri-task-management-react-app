@@ -2,6 +2,7 @@ import {useState } from "react";
 
 function TaskManager(){
     const [tasks, setTask] = useState([]);
+    const [inputValue, setInputValue] = useState("");
     return (
         <>
             <h1> Task Manager </h1>
@@ -11,7 +12,7 @@ function TaskManager(){
                 )}
             </ul>
             <div>
-                <input type="text" />
+                <input type="text" onChange={(even) => setInputValue (even.target.value)}/>
                 <button>Add</button>
             </div>
         </>
