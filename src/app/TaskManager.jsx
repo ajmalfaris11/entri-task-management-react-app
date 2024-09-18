@@ -1,38 +1,54 @@
 import { useState } from "react";
 
-function TaskManager() {
-  // store the tasks and display
-  const [tasks, setTask] = useState([]);
-  // take value from input
+function TaskManager() { // store the tasks and display
+
+  const [tasks, setTasks] = useState([]); // take value from input
   const [inputValue, setInputValue] = useState("");
 
-  // store data when click the Add button
-  function addTask() {
+  
+  function addTask() { // store data when click the Add button
     // validating the input
     inputValue.length == 0
-      ? setTask([...tasks])
-      : setTask([...tasks, inputValue]);
-    // set the value to empty after add the task
-    setInputValue("");
+      ? setTasks([...tasks])
+      : setTasks([...tasks, {
+        content : inputValue,
+        isComplete: false,
+
+    }]);
+      
+    setInputValue("");    // set the value to empty after add the task
+
   }
 
   // delete the task
   function deleteTask(taskIndex) {
     tasks.splice(taskIndex, 1);
-    setTask([...tasks]);
+    setTasks([...tasks]);
+  }
+
+  function markCompleted(taskIndex){
+    tasks[taskIndex].isComplete = !tasks[taskIndex].isComplete //set false and true
+    setTasks([
+        ...tasks
+    ])
   }
 
   return (
     <>
       <h1> Task Manager </h1>
+
       <ul>
         {tasks.map((task, index) => (
           <li>
-            {task}
+            
+            <input type="checkbox" value={task.isComplete} onChange={()=>markCompleted}/>
+            {task.content}
             <button onClick={() => deleteTask(index)}>Delete</button>
+
           </li>
         ))}
       </ul>
+
       <div>
         <input
           value={inputValue}
