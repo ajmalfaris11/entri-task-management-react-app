@@ -41,11 +41,11 @@ function TaskManager() {
 
       <ul>
         {
-          tasks.map((task, index) => (
+          tasks.sort((a)=>a.isComplete ? 1 : -1).map((task, index) => (
           <li key={index}>
             <input
-              checked="checkbox"
-              value={task.isComplete}
+              type="checkbox"
+              checked={task.isComplete}
               onChange={() => markCompleted(index)}
             />
 
