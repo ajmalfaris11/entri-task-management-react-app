@@ -76,5 +76,15 @@
     padding-right: 20px;
 }
 
+.edit {
+    padding: 5px 10px;
+    background: none;
+    border: none;
+    color: rgb(0, 166, 255);
+    transition: .5s;
+}
 
+.edit:hover{
+    scale: 1.2;
+}
 
