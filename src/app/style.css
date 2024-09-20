@@ -1,0 +1,80 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+.taskManager {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading {
+    font-size: 48px;
+}
+
+.tasks {
+    padding: 10px;
+    width: 50%;
+}
+
+.task {
+    padding: 6px;
+    display: flex;
+    justify-content: start;
+    justify-content: space-between;
+}
+
+.check-box { 
+    position: relative;
+    width: 20px;
+    height: 18px;
+    background-color: rgb(255, 0, 0);
+    cursor: pointer;
+    appearance: none;
+    border-radius:50%;
+    margin-right: 10px;
+}
+
+.check-box:checked {
+    background-color: rgb(36, 255, 36);
+}
+
+.check-box::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    width: 4px;
+    height: 10px;
+    border: 4px solid transparent;
+    border-left: none;
+    border-top: none;
+    transform: rotate(45deg) scale(1);
+    
+}
+
+.check-box:checked::before{
+    border-color: rgb(253, 253, 253);
+    animation: chekAnim .5s ease;
+
+}
+
+@keyframes chekAnim {
+    from {
+        transform:rotate(45deg) scale(0);
+    }
+}
+
+.content {
+    text-align: start;
+    width: 100%;
+    padding-right: 20px;
+}
+
+
+

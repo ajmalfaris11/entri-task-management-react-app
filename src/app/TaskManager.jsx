@@ -1,5 +1,7 @@
 import { useState } from "react";
-import "./style.css"
+import "./style.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 function TaskManager() {
   // store the tasks and display
@@ -37,64 +39,70 @@ function TaskManager() {
     setTasks([...tasks]);
   }
 
-  function editTask(taskIndex){
+  function editTask(taskIndex) {
     tasks[taskIndex].isEditing = true;
-    setTasks(
-      [...tasks]
-    )
+    setTasks([...tasks]);
   }
 
-  function updateValue(taskIndex, value){
+  function updateValue(taskIndex, value) {
     tasks[taskIndex].content = value;
-    setTasks(
-      [...tasks]
-    )
+    setTasks([...tasks]);
   }
 
-  function saveTask(taskIndex){
+  function saveTask(taskIndex) {
     tasks[taskIndex].isEditing = false;
 
-    setTasks(
-      [...tasks]
-    )
+    setTasks([...tasks]);
   }
 
   return (
-    <div className="TaskManager">
-      <h1> Task Manager </h1>
+    <div className="taskManager">
+      <h1 className="heading"> Task Manager </h1>
 
-      <ul>
-        {
-          tasks.sort((a)=>a.isComplete ? 1 : -1).map((task, index) => (
-          <li key={index}>
-            <input
-              type="checkbox"
-              checked={task.isComplete}
-              onChange={() => markCompleted(index)}
-            />
+      <ul className="tasks">
+        {tasks
+          .sort((a) => (a.isComplete ? 1 : -1))
+          .map((task, index) => (
+            <li key={index} className="task">
+              <input
+                className="check-box"
+                type="checkbox"
+                checked={task.isComplete}
+                onChange={() => markCompleted(index)}
+              />
 
-            {
-              task.isEditing ?
-              <span>
-                <input type="text" value={task.content} onChange={(event)=> updateValue(index, event.target.value )} />
-                <button onClick={()=> saveTask(index) }>save</button>
-              </span> :
-
-              <span>{task.isComplete ? (
-                <del>{task.content}</del>
+              {task.isEditing ? (
+                <span className="buttons">
+                  <input
+                    className="edit-input"
+                    type="text"
+                    value={task.content}
+                    onChange={(event) => updateValue(index, event.target.value)}
+                  />
+                  <button onClick={() => saveTask(index)} className="save">
+                    save
+                  </button>
+                </span>
               ) : (
-                <span>{task.content}</span>
-              )}</span>
-            }
+                <span className="content">
+                  {task.isComplete ? (
+                    <del>{task.content}</del>
+                  ) : (
+                    <span>{task.content}</span>
+                  )}
+                </span>
+              )}
 
-            
-
-            <button onClick={() => editTask(index)}>Edit</button>
-            <button onClick={() => deleteTask(index)}>Delete</button>
-          </li>
-        ))}
+              <button onClick={() => editTask(index)} className="edit">
+              <FontAwesomeIcon icon={faEdit} /> 
+              </button>
+              <button onClick={() => deleteTask(index)} className="delete">
+              <FontAwesomeIcon icon={faTrash} /> 
+              </button>
+            </li>
+          ))}
       </ul>
-      <div>
+      <div className="add-task-container">
         <input
           value={inputValue}
           type="text"
@@ -105,5 +113,6 @@ function TaskManager() {
     </div>
   );
 }
+
 
 export default TaskManager;
