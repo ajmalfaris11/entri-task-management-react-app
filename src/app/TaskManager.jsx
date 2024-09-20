@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 function TaskManager() {
   // store the tasks and display
@@ -108,7 +108,7 @@ function TaskManager() {
           type="text"
           onChange={(even) => setInputValue(even.target.value)}
         />
-        <button onClick={addTask}>Add</button>
+        <button onClick={addTask}><FontAwesomeIcon icon={faPlus} /> </button>
       </div>
     </div>
   );

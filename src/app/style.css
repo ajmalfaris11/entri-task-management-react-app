@@ -99,3 +99,38 @@
 .delete:hover{
     scale: 1.2;
 }
+
+/* input section styles*/
+
+.add-task-container {
+    display: flex;
+    width: 50%;
+    height: 40px;
+    border-radius: 12px;
+    border: solid rgb(0, 221, 255);;
+
+}
+
+.add-task-container input {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    padding-inline: 10px;
+    border: none;
+    
+}
+
+.add-task-container button {
+    width: 100px;
+    background: none;
+    border: none;
+    border-radius: 0px 10px 10px 0;
+    transition: 0.3s;
+    color: rgb(0, 140, 255);
+    font-size: large;
+}
+
+.add-task-container button:hover {
+    background:rgb(0, 221, 255);
+    color: white;
+}
