@@ -88,3 +88,14 @@
     scale: 1.2;
 }
 
+.delete {
+    padding: 5px 10px;
+    background: none;
+    border: none;
+    color: red;
+    transition: .5s;
+}
+
+.delete:hover{
+    scale: 1.2;
+}
