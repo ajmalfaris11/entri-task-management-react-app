@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faPlus, faSave, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 function TaskManager() {
   // store the tasks and display
@@ -72,7 +72,7 @@ function TaskManager() {
               />
 
               {task.isEditing ? (
-                <span className="buttons">
+                <span className="edit-section">
                   <input
                     className="edit-input"
                     type="text"
@@ -80,7 +80,7 @@ function TaskManager() {
                     onChange={(event) => updateValue(index, event.target.value)}
                   />
                   <button onClick={() => saveTask(index)} className="save">
-                    save
+                  <FontAwesomeIcon icon={faSave} /> 
                   </button>
                 </span>
               ) : (

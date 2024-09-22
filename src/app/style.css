@@ -134,3 +134,30 @@
     background:rgb(0, 221, 255);
     color: white;
 }
+
+/* edit input section */
+
+.edit-section {
+    display: flex;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid blue;
+}
+
+.edit-input {
+    width: 100%;
+    padding-inline: 10px;
+    background: #fff;
+    border-radius: 6px;
+    border: none;
+    padding-block: 5px;
+}
+
+.save{
+    background: none;
+    border: none;
+    background: blue;
+    padding-inline: 15px;
+    border-radius: 5px;
+    color: #fff;
+}
